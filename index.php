@@ -17,7 +17,7 @@ $foodItems = [
 ];
 
 // Define number of items per page
-$itemsPerPage = 3;
+$itemsPerPage = 1;
 
 // Get the current page number (default to 1)
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -108,14 +108,26 @@ $totalPages = ceil(count($foodItems) / $itemsPerPage);
     </div>
 
     <div class="pagination">
+        <!-- First page link -->
+        <?php if ($page > 1): ?>
+            <a href="?page=1">First</a> 
+        <?php endif; ?>
+
         <!-- Previous page link -->
         <?php if ($page > 1): ?>
             <a href="?page=<?php echo $page - 1; ?>">Previous</a>
         <?php endif; ?>
 
-        <!-- Page number links -->
-        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-            <a href="?page=<?php echo $i; ?>" <?php echo ($i == $page) ? 'style="background-color: #0056b3;"' : ''; ?>>
+        <!-- Page number links (Current page with surrounding pages) -->
+        <?php
+        // Define the range of pages to show around the current page
+        $start = max(1, $page - 2);  // Ensure that the start page doesn't go below 1
+        $end = min($totalPages, $page + 2);  // Ensure that the end page doesn't exceed total pages
+        
+        // Display the pages within the calculated range
+        for ($i = $start; $i <= $end; $i++): ?>
+            <a href="?page=<?php echo $i; ?>" 
+            <?php echo ($i == $page) ? 'style="background-color: #0056b3;"' : ''; ?>>
                 <?php echo $i; ?>
             </a>
         <?php endfor; ?>
@@ -124,7 +136,14 @@ $totalPages = ceil(count($foodItems) / $itemsPerPage);
         <?php if ($page < $totalPages): ?>
             <a href="?page=<?php echo $page + 1; ?>">Next</a>
         <?php endif; ?>
+
+        <!-- Last page link -->
+        <?php if ($page < $totalPages): ?>
+            <a href="?page=<?php echo $totalPages; ?>">Last</a>
+        <?php endif; ?>
     </div>
 
 </body>
 </html>
+
+<?php include('test.php'); ?>
