@@ -145,5 +145,3 @@ $totalPages = ceil(count($foodItems) / $itemsPerPage);
 
 </body>
 </html>
-
-<?php include('test.php'); ?>
