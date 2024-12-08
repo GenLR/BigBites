@@ -7,81 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOS</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="script.js"></script>
-
-    <style>
-      
-    /* Modal Background (overlay) */
-    .modal {
-        display: none;  /* Hidden by default */
-        position: fixed;
-        z-index: 9999;  /* Ensure modal is on top */
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.4);  /* Semi-transparent background */
-    }
-
-    /* Modal Content (the white box with login form) */
-    .modal-content {
-        background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 400px;
-        box-sizing: border-box;  /* Ensures padding and width work together */
-        border-radius: 8px;  /* Adds rounded corners to the modal */
-    }
-
-    /* Close button styles */
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    /* Form inputs */
-    input[type="text"],
-    input[type="password"],
-    input[type="submit"] {
-        width: 100%;
-        padding: 12px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;  /* Ensures the input text is properly sized */
-    }
-
-    /* Button styling */
-    .login-btn {
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        background-color: #4CAF50;  /* Green color */
-        color: white;
-        border: none;
-        border-radius: 4px;
-        transition: background-color 0.3s ease; /* Smooth hover effect */
-    }
-
-    .login-btn:hover {
-        background-color: #45a049;  /* Darker green on hover */
-    }
-
-    </style>
-
+    <link rel="stylesheet" href="css/login.css">
+ 
 </head>
 <body>
 
@@ -103,49 +30,89 @@
                 </li>
                 <li class="nav__item">
                     <!-- Login Button from modal -->
-                    <button id="loginBtn" class="login-btn">LOG IN</button>
+                    <button onclick="openModal('login')" class="order-btn">LOGIN</button>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <!-- The Modal (pop-up login form) -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Login</h2>
-            <form action="login.php" method="POST">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required><br>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required><br>
-                <input type="submit" value="Login">
-            </form>
+    <section class="PopUpLogin">   
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal" id="loginModal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div class="modal-header">
+                        <h2>Welcome Back!</h2>
+                        <p>Sign in to continue ordering delicious food</p>
+                    </div>
+                    <form class="login-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <div class="form-group forgot">
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="submit-btn">Login</button>
+                    </form>
+                    <div class="social-login">
+                        <p>Or continue with</p>
+                        <div class="social-buttons">
+                            <button class="social-btn google"><i class="fab fa-google"></i>Google</button>
+                            <button class="social-btn facebook"><i class="fab fa-facebook"></i>Facebook</button>
+                        </div>
+                    </div>
+                    <div class="switch-form">
+                        <p>Don't have an account? <a href="#" onclick="switchModal('signup')">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="signupModal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div class="modal-header">
+                        <h2>Create Account</h2>
+                        <p>Join us for the best food delivery experience</p>
+                    </div>
+                    <form class="signup-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Confirm Password" required>
+                        </div>
+                        <div class="form-group terms">
+                            <label>
+                                <input type="checkbox" required>
+                                I agree to the <a href="#">Terms & Conditions</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="submit-btn">Create Account</button>
+                    </form>
+                    <div class="social-login">
+                        <p>Or continue with</p>
+                        <div class="social-buttons">
+                            <button class="social-btn google"><i class="fab fa-google"></i>Google</button>
+                            <button class="social-btn facebook"><i class="fab fa-facebook"></i>Facebook</button>
+                        </div>
+                    </div>
+                    <div class="switch-form">
+                        <p>Already have an account? <a href="#" onclick="switchModal('login')">Login</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-        // Modal display logic
-        var modal = document.getElementById("loginModal");
-        var btn = document.getElementById("loginBtn");
-        var span = document.getElementsByClassName("close")[0];
-
-        // Open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        // Close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // Close the modal if clicked outside
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+    <script src="js/login.js"></script>
 </body>
 </html>

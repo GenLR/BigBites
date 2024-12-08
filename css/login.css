@@ -1,0 +1,406 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: whitesmoke;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Order Button Styling */
+.order-btn {
+    padding: 16px 48px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(255, 77, 77, 0.2);
+}
+
+.order-btn:hover {
+    background-color: #ff3333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 77, 77, 0.3);
+}
+
+/* Previous Modal Styling remains the same */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    display: none;
+    background-color: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Rest of the previous CSS remains the same */
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .categories {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .featured-image h2 {
+        font-size: 20px;
+    }
+
+    .order-btn {
+        padding: 14px 36px;
+        font-size: 16px;
+    }
+}
+
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Example trigger button styling */
+.order-btn {
+    padding: 12px 24px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.order-btn:hover {
+    background-color: #ff3333;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Container */
+.modal {
+    display: none;
+    background-color: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Login & Signup Form */
+.modal-content {
+    padding: 24px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.modal-header h2 {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.modal-header p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ff4d4d;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.forgot-password {
+    color: #ff4d4d;
+    text-decoration: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #ff3333;
+}
+
+/* Social Login */
+.social-login {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.social-login p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 16px;
+    padding-left: 105px;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.social-btn:hover {
+    background-color: #f5f5f5;
+}
+
+/* Switch Form Link */
+.switch-form {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.switch-form a {
+    color: #ff4d4d;
+    text-decoration: none;
+}
+
+/* Terms Checkbox */
+.terms {
+    font-size: 14px;
+    color: #666;
+}
+
+.terms a {
+    color: #ff4d4d;
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .modal {
+        width: 95%;
+    }
+    
+    .social-buttons {
+        flex-direction: column;
+    }
+}
+
+
+/* Julliane CSS */
+h1{
+color: rgba(98, 179, 216, 0.733);
+font-size: 50px;
+font-weight: 800;
+text-align: center;
+}
+.container{
+    top: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px 20px;
+   flex-direction: row;
+}
+h4{
+    text-align: left;
+    margin-left: 20px;
+    font-size: 17px;
+}
+.card{
+    width: 350px;
+    height: 255px;
+    background:white;
+    border-width: 2px; 
+     text-align: center;
+    border-radius: 10px;
+    position: relative;
+    border: ridge 1.5px;
+}
+p{
+    text-align: left;
+    margin-left: 20px;
+    color: gray;
+}
+  .score .stars {
+    color: #EEBD01;
+    position: absolute;
+    bottom: 30px;
+    
+}
+label{
+    color: white;
+  position: absolute;
+  background-color: #da006d;
+  top: 10px;
+  left: 10px;
+  padding: 5px 5px;
+  border-radius: 10px;
+}
+.bt{
+    height: 200px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.bl{
+    height: 200px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.mt{
+    height: 200px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.bq{
+    height: 200px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.gw{
+    height: 200px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.rr{
+    height: 200px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.pares{
+    height: 200px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.th{
+    height: 200px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.cw{
+    height: 200px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+@media(max-width: 690px){
+  .container{
+    flex-direction: column;
+    gap: 50px 50px;
+    padding: 0;
+  }
+}
