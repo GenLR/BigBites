@@ -1,40 +1,47 @@
 <!-- header.php -->
+<?php 
+require __DIR__ . "../../vendor/autoload.php";
+
+$client = new Google\Client;
+
+$client->setClientId("1017558179869-ecnnff4unleha97p88lqih9nnah92b6f.apps.googleusercontent.com");
+$client->setClientSecret("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 ");
+$client->setRedirectUri("http://localhost/BigBites/login.php");
+
+$client->addScope("email");
+$client->addScope("profile");
+
+$url = $client->createAuthUrl();
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOS</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>BigBites</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/login.css">
  
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="nav__container">
-            <a href="index.php" class="nav__logo">
-                F<span>O</span>S
-            </a>
-            <label for="check" class="checkbox">
-                <i class="fa-solid fa-bars"></i>
-            </label>
-            <input type="checkbox" name="check" id="check">
-            <ul class="nav__menu">
-                <li class="nav__item">
-                    <a href="index.php" class="nav__links">HOME</a>
-                </li>
-                <li class="nav__item">
-                    <a href="search.php" class="nav__links">SEARCH</a>
-                </li>
-                <li class="nav__item">
-                    <!-- Login Button from modal -->
-                    <button onclick="openModal('login')" class="order-btn">LOGIN</button>
-                </li>
-            </ul>
+    <header class="header">
+        <div class="logo">
+            <img src="image/logo.png" alt="" width = '60px'>
+            <h1><span class="big">BIG</span><span class="bites">BITES</span></h1>
         </div>
-    </nav>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#">Restaurants</a>
+            <a href="#">Contact Us</a>
+            <button onclick="openModal('login')" class="order-btn">LOGIN</button>
+        </nav>
+    </header>
+
 
     <section class="PopUpLogin">   
         <div class="modal-overlay" id="modalOverlay">
@@ -60,8 +67,7 @@
                     <div class="social-login">
                         <p>Or continue with</p>
                         <div class="social-buttons">
-                            <button class="social-btn google"><i class="fab fa-google"></i>Google</button>
-                            <button class="social-btn facebook"><i class="fab fa-facebook"></i>Facebook</button>
+                            <a href="<?= $url ?>" class="social-btn google"><i class="fab fa-google"></i>Google</a>
                         </div>
                     </div>
                     <div class="switch-form">
@@ -90,19 +96,12 @@
                         <div class="form-group">
                             <input type="password" placeholder="Confirm Password" required>
                         </div>
-                        <div class="form-group terms">
-                            <label>
-                                <input type="checkbox" required>
-                                I agree to the <a href="#">Terms & Conditions</a>
-                            </label>
-                        </div>
                         <button type="submit" class="submit-btn">Create Account</button>
                     </form>
                     <div class="social-login">
                         <p>Or continue with</p>
                         <div class="social-buttons">
-                            <button class="social-btn google"><i class="fab fa-google"></i>Google</button>
-                            <button class="social-btn facebook"><i class="fab fa-facebook"></i>Facebook</button>
+                            <a href="<?= $url ?>" class="social-btn google"><i class="fab fa-google"></i>Google</a>
                         </div>
                     </div>
                     <div class="switch-form">
