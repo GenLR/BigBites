@@ -2,11 +2,13 @@
 <?php 
 require __DIR__ . "../../vendor/autoload.php";
 
+session_start();
+
 $client = new Google\Client;
 
-$client->setClientId("1017558179869-ecnnff4unleha97p88lqih9nnah92b6f.apps.googleusercontent.com");
-$client->setClientSecret("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 ");
-$client->setRedirectUri("http://localhost/BigBites/login.php");
+$client->setClientId("1017558179869-627tt4p3p3cfm6jo2q3jd8tpfg4nekk3.apps.googleusercontent.com");
+$client->setClientSecret("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");
+$client->setRedirectUri("http://localhost/BigBites/googleLogin.php");
 
 $client->addScope("email");
 $client->addScope("profile");
@@ -29,18 +31,25 @@ $url = $client->createAuthUrl();
 </head>
 <body>
 
-    <header class="header">
-        <div class="logo">
-            <img src="image/logo.png" alt="" width = '60px'>
-            <h1><span class="big">BIG</span><span class="bites">BITES</span></h1>
-        </div>
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#">Restaurants</a>
-            <a href="#">Contact Us</a>
-            <button onclick="openModal('login')" class="order-btn">LOGIN</button>
-        </nav>
-    </header>
+<header class="header">
+    <div class="logo">
+        <img src="image/logo.png" alt="" width='60px'>
+        <h1><span class="big">BIG</span><span class="bites">BITES</span></h1>
+    </div>
+    <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#">Restaurants</a>
+        <a href="#">Contact Us</a>
+        <?php 
+            if (empty($_SESSION)) {
+                echo "<button onclick=\"openModal('login')\" class='order-btn'>LOGIN</button>";
+            } else {
+                echo "<button onclick=\"window.location.href='logout.php';\" class='order-btn'>LOGOUT</button>";
+            }
+        ?>
+    </nav>
+</header>
+
 
 
     <section class="PopUpLogin">   

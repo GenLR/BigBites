@@ -108,15 +108,8 @@
     margin-bottom: 15px;
 }
 
-.location .btn {
-    background: #ff4500;
-    color: white;
+.locations .btn {
     text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 14px;
-    transition: 0.5s;
 }
 
 .location .btn:hover {

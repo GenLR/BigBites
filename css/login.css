@@ -17,7 +17,7 @@ body {
 /* Order Button Styling */
 .order-btn {
     padding: 16px 48px;
-    background-color: #ff4d4d;
+    background-color: #ff6f00;
     color: white;
     border: none;
     border-radius: 8px;
@@ -29,7 +29,7 @@ body {
 }
 
 .order-btn:hover {
-    background-color: #ff3333;
+    background-color: #ff6f00;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(255, 77, 77, 0.3);
 }
@@ -97,7 +97,7 @@ body {
 /* Example trigger button styling */
 .order-btn {
     padding: 12px 24px;
-    background-color: #ff4d4d;
+    background-color: #ff6f00;
     color: white;
     border: none;
     border-radius: 8px;
@@ -107,7 +107,7 @@ body {
 }
 
 .order-btn:hover {
-    background-color: #ff3333;
+    background-color: #ff6f00;
 }
 
 /* Modal Overlay */
@@ -192,7 +192,7 @@ body {
 
 .form-group input:focus {
     outline: none;
-    border-color: #ff4d4d;
+    border-color: #ff6f00;
 }
 
 .remember-forgot {
@@ -203,14 +203,14 @@ body {
 }
 
 .forgot-password {
-    color: #ff4d4d;
+    color: #ff6f00;
     text-decoration: none;
 }
 
 .submit-btn {
     width: 100%;
     padding: 12px;
-    background-color: #ff4d4d;
+    background-color: #ff6f00;
     color: white;
     border: none;
     border-radius: 8px;
@@ -220,7 +220,7 @@ body {
 }
 
 .submit-btn:hover {
-    background-color: #ff3333;
+    background-color: #ff6f00;
 }
 
 /* Social Login */
@@ -271,7 +271,7 @@ body {
 }
 
 .switch-form a {
-    color: #ff4d4d;
+    color: #ff6f00;
     text-decoration: none;
 }
 
@@ -282,7 +282,7 @@ body {
 }
 
 .terms a {
-    color: #ff4d4d;
+    color: #ff6f00;
     text-decoration: none;
 }
 
@@ -344,7 +344,7 @@ p{
 label{
     color: white;
   position: absolute;
-  background-color: #da006d;
+  background-color: #ff6f00;
   top: 10px;
   left: 10px;
   padding: 5px 5px;
@@ -411,3 +411,4 @@ label{
     padding: 0;
   }
 }
+

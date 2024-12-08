@@ -1,34 +1,36 @@
 <?php
-// login.php
-require __DIR__ . "/vendor/autoload.php";
+require_once '../include/autoloader.php';
 
-$client = new Google\Client;
-
-$client->setClientId("1017558179869-ecnnff4unleha97p88lqih9nnah92b6f.apps.googleusercontent.com");
-$client->setClientSecret("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 ");
-$client->setRedirectUri("http://localhost/BigBites/login.php");
-
-$client->addScope("email");
-$client->addScope("profile");
-
-$url = $client->createAuthUrl();
-
-
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
 
-    // Example: Hardcoded username and password check (replace with actual logic)
-    if ($username == 'admin' && $password == 'password') {
-        echo "Login successful!";
-        // Redirect to dashboard or home page
-        header("Location: dashboard.php");
-        exit();
-    } else {
-        echo "Invalid credentials!";
+    $user = new User();
+
+    try {
+        $loggedInUser = $user->login($username, $password);
+        
+        // Store user data in session
+        $_SESSION['user'] = $loggedInUser;
+
+        if($loggedInUser['acc_type']== "admin"){
+            header("Location: admin/admin.php");
+            exit;
+        } else {
+            header("Location: dashboard.php");
+            exit;
+        }
+        // Redirect to dashboard or homepage
+        
+    } catch (Exception $e) {
+        $error = $e->getMessage();
     }
 }
+
 ?>
+
+
 
 
