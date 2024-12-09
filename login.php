@@ -1,17 +1,24 @@
 <?php
-require_once '../include/autoloader.php';
+require_once 'include/autoloader.php';
 
 session_start();
+ini_set('display_errors', 0);
+error_reporting(0);
+ob_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+
+header('Content-Type: application/json');
+
+    $email = trim($_POST['email']);
+    $password = trim($_POST['pass']);
 
     $user = new User();
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
     try {
-        $loggedInUser = $user->login($username, $password);
-        
+        $loggedInUser = $user->login($email, $password);
+
         // Store user data in session
         $_SESSION['user'] = $loggedInUser;
 
@@ -19,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header("Location: admin/admin.php");
             exit;
         } else {
-            header("Location: dashboard.php");
             exit;
         }
         // Redirect to dashboard or homepage

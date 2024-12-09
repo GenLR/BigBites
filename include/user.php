@@ -23,7 +23,7 @@ class User {
         return $this->db->lastInsertId();
     }
     //Get Users (cRud)
-    public function login($username, $password) {
+    public function login($email, $password) {
         try {
             // Validate input
             if (empty($username) || empty($password)) {
@@ -31,9 +31,9 @@ class User {
             }
 
             // Prepare and execute query
-            $query = "SELECT * FROM tbl_user WHERE user = :user LIMIT 1";
+            $query = "SELECT * FROM tbl_user WHERE email = :email LIMIT 1";
             $stmt = $this->db->prepare($query);
-            $stmt->bindParam(':user', $username, PDO::PARAM_STR);
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
             $stmt->execute();
             
             // Fetch user

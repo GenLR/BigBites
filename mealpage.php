@@ -46,7 +46,7 @@ try {
     <h2>Explore Cities/Municipalities in Cebu</h2>
     <div class="locations">
         <?php foreach ($locations as $location): ?>
-            <a href="mealpage.php?id=<?php echo $location['id']; ?>" class="btn">
+            <a href="location-details.php?id=<?php echo $location['id']; ?>" class="btn">
                 <div class="location" id=<?php echo $location['id']; ?>>
                         <h3><?php echo htmlspecialchars($location["area"]); ?></h3>
                         <img src="<?php echo htmlspecialchars($location["img"]); ?>" alt="<?php echo htmlspecialchars($location["area"]); ?>">

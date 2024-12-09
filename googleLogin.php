@@ -39,9 +39,7 @@ $user = new User();
 if ($user->isEmailUnique($userinfo->email)) {
     $password = "loggedinwithgoogle";
     $user->register($userinfo->name, $userinfo->email, $password);
-    header("Location: dashboard.php");
-        exit();
+    exit();
 } else {
-    header("Location: dashboard.php");
     exit();
 }
