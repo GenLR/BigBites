@@ -1,0 +1,17 @@
+.panel{
+    position: absolute;
+    float: right;
+    top: 5vh;
+    right: 5vb;
+    height: 90vh;
+    width: 350px;
+    padding: 10px 10%;
+    background-color: #ff6f00;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    overflow-y: auto;
+}

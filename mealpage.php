@@ -34,10 +34,11 @@ try {
 
 try {
     $stmt = $db->prepare("SELECT tbl_meal.id, tbl_meal.name AS meal_name, tbl_meal.description, tbl_meal.price, tbl_store.name AS store_name, tbl_meal.img 
-                            FROM tbl_meal INNER JOIN tbl_store ON tbl_meal.id = tbl_store.id");
+                            FROM tbl_meal INNER JOIN tbl_store ON tbl_meal.store = tbl_store.id");
     $stmt->execute();
 
     $meals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($meals);
 
 } catch (PDOException $e) {
     die("Query failed: " . $e->getMessage());
@@ -51,7 +52,7 @@ try {
             <a href="store.php?id=<?php echo $meal['id']; ?>" class="btn">
                 <div class="location" id=<?php echo $meal['id']; ?>>
                         <h3><?php echo htmlspecialchars($meal["meal_name"]); ?></h3>
-                        <img src="<?php echo htmlspecialchars($meal["img"]); ?>" alt="<?php echo htmlspecialchars($meal["name"]); ?>">
+                        <img src="<?php echo htmlspecialchars($meal["img"]); ?>" alt="<?php echo htmlspecialchars($meal["meal_name"]); ?>">
                         <p><?php echo htmlspecialchars($meal["description"]); ?></p>
                         <p class="price">₱ <?php echo htmlspecialchars($meal["price"]); ?></p>
                         <p class=""><?php echo htmlspecialchars($meal["store_name"]); ?></p>
