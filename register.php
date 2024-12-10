@@ -2,9 +2,6 @@
 require_once 'include/autoloader.php';
 
 session_start();
-ini_set('display_errors', 0);
-error_reporting(0);
-ob_start();
 
 header('Content-Type: application/json');  // Set the response type to JSON
 
@@ -20,7 +17,7 @@ $cpass = $_POST['cpass'];
         if (empty($name) || empty($email) || empty($pass) || empty($cpass)) {
             echo json_encode(['success' => false, 'message' => 'All fields are required!']);
             exit;
-        } else if ($user->isEmailUnique($email)) {
+        } else if (!$user->isEmailUnique($email)) {
             echo json_encode(['success' => false, 'message' => 'Email already taken!']);
             exit;
         } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -30,11 +27,11 @@ $cpass = $_POST['cpass'];
             echo json_encode(['success' => false, 'message' => "Passwords aren't match!"]);
             exit;
         } else {
-            $userId = $user->register($name, $email, $pass);
             echo json_encode(['success' => true, 'message' => ' Successful Registration!']);
+            $userId = $user->register($name, $email, $pass);
                 try {
 
-                    $loggedInUser = $user->login($email, $password);
+                    $loggedInUser = $user->login($email, $pass);
                     
                     // Store user data in session
                     $_SESSION['user'] = $loggedInUser;

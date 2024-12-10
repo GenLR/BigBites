@@ -26,7 +26,7 @@ class User {
     public function login($email, $password) {
         try {
             // Validate input
-            if (empty($username) || empty($password)) {
+            if (empty($email) || empty($password)) {
                 throw new Exception("Username and Password are required.");
             }
 

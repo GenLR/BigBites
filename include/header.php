@@ -66,10 +66,10 @@ $url = $client->createAuthUrl();
                     </div>
                     <form class="login-form" onsubmit="return handleLoginSubmit(event)">
                         <div class="form-group">
-                            <input type="email" name="email" id="email" placeholder="Email" required>
+                            <input type="email" name="lemail" id="lemail" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="pass" id="pass" placeholder="Password" required>
+                            <input type="password" name="lpass" id="lpass" placeholder="Password" required>
                         </div>
                         <div class="form-group forgot">
                             <a href="#" class="forgot-password">Forgot Password?</a>
@@ -99,16 +99,16 @@ $url = $client->createAuthUrl();
                     </div>
                     <form class="signup-form" onsubmit="return handleRegisterSubmit(event)">
                         <div class="form-group">
-                            <input type="text" name="name" id="name" placeholder="Full Name" required>
+                            <input type="text" name="rname" id="rname" placeholder="Full Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" id="email" placeholder="Email" required>
+                            <input type="email" name="remail" id="remail" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="pass" id="pass" placeholder="Password" required>
+                            <input type="password" name="rpass" id="rpass" placeholder="Password" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="cpass" id="cpass" placeholder="Confirm Password" required>
+                            <input type="password" name="rcpass" id="rcpass" placeholder="Confirm Password" required>
                         </div>
                         <button type="submit" class="submit-btn">Create Account</button>
                     </form>

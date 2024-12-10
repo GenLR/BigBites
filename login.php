@@ -2,38 +2,45 @@
 require_once 'include/autoloader.php';
 
 session_start();
-ini_set('display_errors', 0);
-error_reporting(0);
-ob_start();
-
 
 header('Content-Type: application/json');
 
-    $email = trim($_POST['email']);
-    $password = trim($_POST['pass']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'] ?? null;
+    $password = $_POST['pass'] ?? null;
 
-    $user = new User();
+    if (!$email || !$password) {
+        echo json_encode(['success' => false, 'message' => 'Email or password is missing.']);
+        exit;
+    }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
     try {
-        $loggedInUser = $user->login($email, $password);
+        $user = new User();
+            $loggedInUser = $user->login($email, $password);
 
-        // Store user data in session
-        $_SESSION['user'] = $loggedInUser;
-
-        if($loggedInUser['acc_type']== "admin"){
-            header("Location: admin/admin.php");
+            // If login is successful
+            $_SESSION['user'] = $loggedInUser;
+    
+            echo json_encode([
+                'success' => true,
+                'message' => 'Login successful',
+                'redirect' => $loggedInUser['acc_type'] === 'admin' ? 'admin/admin.php' : 'index.php',
+            ]);
             exit;
-        } else {
+        } catch (Exception $e) {
+            echo json_encode([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ]);
             exit;
         }
-        // Redirect to dashboard or homepage
-        
-    } catch (Exception $e) {
-        $error = $e->getMessage();
+    } else {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Invalid request method.',
+        ]);
+        exit;
     }
-}
 
 ?>
 

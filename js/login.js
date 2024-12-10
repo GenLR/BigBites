@@ -1,42 +1,46 @@
 
-    // LOGIN form submission via AJAX
+    // submit via AJAX
     function handleLoginSubmit(event) {
-        event.preventDefault();  // Prevent form from submitting normally
+        event.preventDefault();  
         
-        // Clear previous messages
+        // clear messages
         document.getElementById('loginErrorMessage').innerText = '';
         document.getElementById('loginSuccessMessage').innerText = '';
 
-        // Get form data
-        const email = document.getElementById('email').value;
-        const pass = document.getElementById('pass').value;
+        // get data
+        const email = document.getElementById('lemail').value.trim();
+        const pass = document.getElementById('lpass').value.trim();
+
+        console.log("Email:", email);
+        console.log("Password:", pass);
     
-        // AJAX request to validate registration
+        // AJAX 
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'login.php', true);  // The PHP script for validation
+        xhr.open('POST', 'login.php', true);  // send to validation
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         
-        // Send form data to the server
-        xhr.send('email=' + encodeURIComponent(email) + 'pass=' + encodeURIComponent(pass));
-        
-        // Handle the server response
+        // send data to server
+        xhr.send('email=' + encodeURIComponent(email) + '&pass=' + encodeURIComponent(pass));
+      
+        // server response
         xhr.onload = function() {
             if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);  // Parse JSON response
-                
+                const response = JSON.parse(xhr.responseText);  // parse to JSON response
+
                 if (response.success) {
-                    // Show success message and then close modal
+                    // success message 
                     document.getElementById('loginSuccessMessage').innerText = response.message;
-                    document.getElementById('loginErrorMessage').innerText = '';  // Clear any previous errors
+                    document.getElementById('loginErrorMessage').innerText = '';  
                     
-                    // Close the modal after a successful registration
+                    // close modal if success
                     setTimeout(() => {
-                        closeModal();  // Close the modal after a delay to show the success message
-                    }, 2000); // Adjust delay to suit your preference
+                        closeModal(); 
+                        location.reload(); // reload the current page
+                    }, 2000); // _delay time
                 } else {
-                    // Show error message
-                    document.getElementById('loginErrorMessage').innerText = response.message;
-                    document.getElementById('loginSuccessMessage').innerText = '';  // Clear any previous successes
+                    // error message
+                    document.getElementById('loginErrorMessage').innerText = response.message; 
+                    document.getElementById('loginSuccessMessage').innerText = '';  
                 }
             }
         };

@@ -7,10 +7,10 @@ function handleRegisterSubmit(event) {
     document.getElementById('signupSuccessMessage').innerText = '';
 
     // Get form data
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const pass = document.getElementById('pass').value;
-    const cpass = document.getElementById('cpass').value;
+    const name = document.getElementById('rname').value;
+    const email = document.getElementById('remail').value;
+    const pass = document.getElementById('rpass').value;
+    const cpass = document.getElementById('rcpass').value;
 
 console.log(name, email, pass, cpass);
 
@@ -20,8 +20,8 @@ console.log(name, email, pass, cpass);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     
     // Send form data to the server
-    xhr.send('name=' + encodeURIComponent(name) + 'email=' + encodeURIComponent(email) +
-             'pass=' + encodeURIComponent(pass) + 'cpass=' + encodeURIComponent(cpass));
+    xhr.send('name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) +
+             '&pass=' + encodeURIComponent(pass) + '&cpass=' + encodeURIComponent(cpass));
     
     // Handle the server response
     xhr.onload = function() {
@@ -36,6 +36,7 @@ console.log(name, email, pass, cpass);
                 // Close the modal after a successful registration
                 setTimeout(() => {
                     closeModal();  // Close the modal after a delay to show the success message
+                    location.reload();
                 }, 2000); // Adjust delay to suit your preference
             } else {
                 // Show error message

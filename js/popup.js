@@ -155,3 +155,6 @@
             orderBtn.style.transform = 'translateY(0)';
         }, 500);
     });
+
+    document.getElementById('signupErrorMessage').innerText = '';
+    document.getElementById('signupSuccessMessage').innerText = '';
