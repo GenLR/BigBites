@@ -26,7 +26,7 @@ $url = $client->createAuthUrl();
     <link rel="icon" href="images/logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="http://localhost/BigBites/css/header.css">
     <link rel="stylesheet" href="css/login.css">
  
 </head>
@@ -50,8 +50,6 @@ $url = $client->createAuthUrl();
         ?>
     </nav>
 </header>
-
-
 
     <section class="PopUpLogin">   
         <div class="modal-overlay" id="modalOverlay">

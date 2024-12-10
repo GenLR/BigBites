@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="landing.php">
+<link rel="stylesheet" href="css/landing.php">
 <footer class="footer" id="footer">
         <div class="container">
             <div class="row">

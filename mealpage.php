@@ -33,24 +33,28 @@ try {
 }
 
 try {
-    $stmt = $db->prepare("SELECT * FROM tbl_location");
+    $stmt = $db->prepare("SELECT tbl_meal.id, tbl_meal.name AS meal_name, tbl_meal.description, tbl_meal.price, tbl_store.name AS store_name, tbl_meal.img 
+                            FROM tbl_meal INNER JOIN tbl_store ON tbl_meal.id = tbl_store.id");
     $stmt->execute();
 
-    $locations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $meals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 } catch (PDOException $e) {
     die("Query failed: " . $e->getMessage());
 }
 ?>
-
+;
 <section class="location-container" id="locations">
-    <h2>Explore Cities/Municipalities in Cebu</h2>
+    <h2>Enjoy The Flavours of Cebu</h2>
     <div class="locations">
-        <?php foreach ($locations as $location): ?>
-            <a href="location-details.php?id=<?php echo $location['id']; ?>" class="btn">
-                <div class="location" id=<?php echo $location['id']; ?>>
-                        <h3><?php echo htmlspecialchars($location["area"]); ?></h3>
-                        <img src="<?php echo htmlspecialchars($location["img"]); ?>" alt="<?php echo htmlspecialchars($location["area"]); ?>">
-                        <p><?php echo htmlspecialchars($location["description"]); ?></p>
+        <?php foreach ($meals as $meal): ?>
+            <a href="store.php?id=<?php echo $meal['id']; ?>" class="btn">
+                <div class="location" id=<?php echo $meal['id']; ?>>
+                        <h3><?php echo htmlspecialchars($meal["meal_name"]); ?></h3>
+                        <img src="<?php echo htmlspecialchars($meal["img"]); ?>" alt="<?php echo htmlspecialchars($meal["name"]); ?>">
+                        <p><?php echo htmlspecialchars($meal["description"]); ?></p>
+                        <p class="price">₱ <?php echo htmlspecialchars($meal["price"]); ?></p>
+                        <p class=""><?php echo htmlspecialchars($meal["store_name"]); ?></p>
                 </div>        
             </a>
         <?php endforeach; ?>
