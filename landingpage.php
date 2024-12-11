@@ -5,22 +5,22 @@
 
 <link rel="stylesheet" href="css/landing.css">
 <section class="home" id="home">
-    <div class="tagline">
-        <h1>Find Your Favorite <span class="highlight">Meals</span><br> and Get Them Delivered Fast!</h1>
-        <p>Delicious meals just a click away.</p>
-        <div class="box">
-            <div class="search-box">
-                <input type="text" placeholder="Enter your location...">
-                <label for="" class="icon">
-                    <i class='bx bx-search'></i>
-                </label>
-            </div>
-        </div>            
-    </div>
-    <div class="picture">
-        <img src="images/pic1.png" alt="Food Delivery">
-    </div>
-</section>
+        <div class="tagline">
+            <h1>Find Your Favorite <span class="highlight">Meals</span><br> and Get Them Delivered Fast!</h1>
+            <p>Delicious meals just a click away.</p>
+            <div class="box">
+                <div class="search-box">
+                    <input type="text" placeholder="Enter your location...">
+                    <label for="" class="icon">
+                        <i class='bx bx-search'></i>
+                    </label>
+                </div>
+            </div>            
+        </div>
+        <div class="picture">
+            <img src="images/pic1.png" alt="Food Delivery">
+        </div>
+    </section>
 
 <?php
 // Fetch locations from database

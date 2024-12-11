@@ -34,13 +34,10 @@ $url = $client->createAuthUrl();
 
 <header class="header">
     <div class="logo">
-        <img src="images/logo.png" alt="" width='60px'>
+        <img src="images/logo.png" alt="logo" width='60px'>
         <h1><span class="big">BIG</span><span class="bites">BITES</span></h1>
     </div>
     <nav class="navbar">
-        <a href="#home" class="active">Home</a>
-        <a href="landingpage.php">Locations</a>
-        <a href="mealpage.php">Order Meal</a>
         <?php 
             if (empty($_SESSION)) {
                 echo "<button onclick=\"openModal('login')\" class='order-btn'>LOGIN</button>";

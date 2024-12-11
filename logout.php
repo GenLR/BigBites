@@ -15,7 +15,7 @@
         // Destroy the session
         session_destroy();
 
-        header("Location: index.php");
+        header("Location: landingpage.php");
             exit;
     } catch (Exception $e) {
         $error = $e->getMessage();

@@ -17,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 999;
 }
 
 .logo {
@@ -52,7 +52,7 @@
 .navbar a:hover{
     text-decoration: 2px solid underline   #ffd700;;
 }
-.navbar .active{
+.navbar a.active{
     text-decoration: 2px solid underline   #ffd700;
 }
 
